@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "hud",
+"language": "GDScript",
+"path": "res://gui/HUD.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "snek",
 "language": "GDScript",
 "path": "res://actors/snek/snek.gd"
 } ]
 _global_script_class_icons={
+"hud": "",
 "snek": ""
 }
 

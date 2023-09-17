@@ -16,7 +16,7 @@ func _on_ExitButton_pressed():
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://gui/HUD.tscn")
+	get_tree().change_scene("res://maps/00/scn_map_00.tscn")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

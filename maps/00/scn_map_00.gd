@@ -1,5 +1,10 @@
-extends TextureRect
+extends ColorRect
 export var player : PackedScene
+export var hud_scene : PackedScene
+var begin_game : Node
+var active_hud
+var conversation: int
+
 signal introduction
 
 
@@ -18,4 +23,25 @@ func _on_PlayerShip_player_exit():
 	player_scene.set_global_position(Vector2(22, 168))
 	add_child(player_scene)
 	emit_signal('introduction')
-	player_scene.make_priority()
+	player_scene.make_priority(0, 200, 208, 0)
+	dialog_start()
+
+func dialog_start():
+	active_hud = hud_scene.instance()
+	add_child(active_hud)
+	get_tree().paused = true
+	conversation = 1
+	active_hud.dialog_start(0)
+	
+
+func _process(_delta):
+	if Input.is_action_just_released("jump"):
+		if conversation == 1:
+			active_hud.dialog_start(conversation)
+			conversation += 1
+		elif conversation == 2:
+			active_hud.dialog_start(conversation)
+			conversation += 1
+		elif conversation == 3:
+			active_hud.dialog_stop()
+			

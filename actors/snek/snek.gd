@@ -2,11 +2,17 @@ extends KinematicBody2D
 class_name snek
 var velocity : Vector2
 export (int) var speed = 350
-export (int) var gravity = 200
+export (int) var gravity = 3000
 export (int) var jump_speed = 200
 
-func make_priority():
+func make_priority(top_bound, right_bound, bottom_bound, left_bound):
 	$Camera2D._set_current(true)
+	$Camera2D.limit_left = left_bound
+	$Camera2D.limit_right = right_bound
+	$Camera2D.limit_bottom = bottom_bound
+	$Camera2D.limit_top = top_bound
+	
+	self.set_scale(Vector2(2,2))
 
 func get_input():
 	velocity = Vector2()
