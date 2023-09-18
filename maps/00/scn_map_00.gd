@@ -15,15 +15,15 @@ signal introduction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Navigation2D/PlayerShip.landing = true
+	$PlayerShip.landing = true
 	
 
 func _on_PlayerShip_player_exit():
 	var player_scene = player.instance()
-	player_scene.set_global_position(Vector2(22, 168))
+	player_scene.set_global_position(Vector2(22, 180))
 	add_child(player_scene)
 	emit_signal('introduction')
-	player_scene.make_priority(0, 200, 208, 0)
+	player_scene.make_priority(0, 256, 256, 0)
 	dialog_start()
 
 func dialog_start():
@@ -45,3 +45,9 @@ func _process(_delta):
 		elif conversation == 3:
 			active_hud.dialog_stop()
 			
+
+
+func _on_DoorDetection_next_scene():
+	if active_hud.has_method("fade_in"):
+		print(active_hud.has_method("fade_in"))
+		active_hud.has_method("fade_in")
