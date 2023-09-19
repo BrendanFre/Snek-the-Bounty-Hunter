@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://maps/01/01-house-tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://actors/snek/snek.tscn" type="PackedScene" id=2]
+[ext_resource path="res://maps/01/01-house.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.5, 13.5 )
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, -1073741823, 0, 2, -1073741823, 0, 3, -1073741823, 0, 4, -1073741823, 0, 5, -1073741823, 0, 6, -1073741823, 0, 7, -1073741823, 0, 8, -1073741823, 0, 9, 536870915, 0, 65536, 536870913, 0, 65537, 7, 0, 65538, 7, 0, 65539, 7, 0, 65540, 7, 0, 65541, 7, 0, 65542, 7, 0, 65543, 7, 0, 65544, 7, 0, 65545, 1, 0, 131072, 536870913, 0, 131073, 7, 0, 131074, 7, 0, 131075, 7, 0, 131076, 7, 0, 131077, 7, 0, 131078, 7, 0, 131079, 7, 0, 131080, 7, 0, 131081, 1, 0, 196608, 536870913, 0, 196609, 536870916, 0, 196610, 7, 0, 196611, 7, 0, 196612, 7, 0, 196613, 6, 0, 196614, 7, 0, 196615, 7, 0, 196616, 536870916, 0, 196617, 1, 0, 262144, 2, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 5, 0, 262150, 0, 0, 262151, 0, 0, 262153, 536870914, 0 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 60.0 ],
+"_edit_vertical_guides_": [ 24.0 ]
+}
+player = ExtResource( 2 )
+
+[node name="Door1" type="Area2D" parent="."]
+position = Vector2( 24, 61 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2( 135, 61 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_right = 83.0
+margin_bottom = 58.0

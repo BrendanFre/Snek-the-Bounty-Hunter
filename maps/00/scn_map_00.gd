@@ -4,7 +4,8 @@ export var hud_scene : PackedScene
 var begin_game : Node
 var active_hud
 var conversation: int
-
+var at_door: bool
+var next_scene : String = "res://maps/01/01-house.tscn"
 signal introduction
 
 
@@ -44,10 +45,22 @@ func _process(_delta):
 			conversation += 1
 		elif conversation == 3:
 			active_hud.dialog_stop()
+	
+	if at_door:
+		if Input.is_action_pressed("jump"):
+			get_tree().paused
+			active_hud.fade_in()
+			$"/root/Progress/".level_entry = 1
+			get_tree().change_scene(next_scene)
+		
 			
 
 
 func _on_DoorDetection_next_scene():
 	if active_hud.has_method("fade_in"):
-		print(active_hud.has_method("fade_in"))
-		active_hud.has_method("fade_in")
+		at_door = true
+		
+
+
+func _on_DoorDetection_body_exited(body):
+	at_door = false

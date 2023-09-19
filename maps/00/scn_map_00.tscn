@@ -4,7 +4,7 @@
 [ext_resource path="res://actors/ship/ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://maps/00/scn_map_00.gd" type="Script" id=3]
 [ext_resource path="res://actors/snek/snek.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/hud/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://maps/00/DoorDetection.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=13]

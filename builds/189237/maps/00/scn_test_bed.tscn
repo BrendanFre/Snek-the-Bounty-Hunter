@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://actors/snek/snek.tscn" type="PackedScene" id=1]
+[ext_resource path="res://maps/00/tilemap_00.tres" type="TileSet" id=2]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+format = 1
+tile_data = PoolIntArray( 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0 )
+
+[node name="Snek" parent="." instance=ExtResource( 1 )]
+position = Vector2( 12, 38 )
